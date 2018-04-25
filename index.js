@@ -9,7 +9,16 @@ var FUNNY_PORT = 7500;
 function handleRequest(request, response) {
   console.log(request);
   // Send the below string to the client when the user visits the PORT URL
-  response.end("You are good");
+  var random = Math.floor(Math.random()* 3);
+  var good = "";
+  if(random == 0) {
+    good = "You are amazing";
+  } else if(random === 1) {
+    good = "You are awesome";
+  } else {
+    good = "You are wunderbar";
+  }
+  response.end(good);
 }
 
 function handleRequestFunny(request, response) {
@@ -31,7 +40,3 @@ server1.listen(GOOD_PORT, function() {
 server2.listen(FUNNY_PORT, function() {
   console.log("Server listening on: http://localhost:" + FUNNY_PORT);
 });
-
-
-
-Add CommentCollapse 
